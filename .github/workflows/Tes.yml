@@ -41,7 +41,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          wget https://download1531.mediafire.com/zji8utzpc6mg0w3yEBjuKgkVCcsYJObCP3Pakkqp_PvyoyMZSwRRJgNKXYMMJSxu09601BtvG_BFivGL0Sv0rbCfRapIv8h7nNimvZJGMO7px07dlc2bMIvGV1JFSEWYTneeUIh14jwCNdU3fqQfEv7W7B5TZ7jLwskjE44hKfAI/ei0b29wwjhzfl75/OpenWrt_s905x_23.05.3_Clash-Wall-B860H-15.06.2024_wifi_on.tar.gz -P ./openwrt
+          wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./openwrt
           sudo ./ulo -k ${{ matrix.kernel }} -m ${{ matrix.devices }} -s 1024
           
       - name: Creating Package Artifact
