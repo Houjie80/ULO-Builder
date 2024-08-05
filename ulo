@@ -23,6 +23,7 @@ fwdriver_path="./core/root/lib"
 
 # Kernel & Firmware Repository
 repos="https://github.com/Houjie80/ULO-repository"
+wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./rootfs
 
 die() {
     echo -e "ERROR.. = $1"
@@ -86,12 +87,12 @@ download_requirement_files() {
     [ -d "${tmp_path}" ] || mkdir $tmp_path
 
     if [ ! -f "${tmp_path}/data.zip" ]; then
-        echo -e "Downloading KERNEL, ROOTFS, & Driver Firmware" | $lolcat -a -d 1
+        echo -e "Downloading KERNEL, & Driver Firmware" | $lolcat -a -d 1
         aria2c --out=${tmp_path}/data.zip "${repos}/archive/refs/heads/main.zip"
-        echo -e "Unzipping KERNEL, ROOTFS, & Driver Firmware" | $lolcat -a -d 1
+        echo -e "Unzipping KERNEL, & Driver Firmware" | $lolcat -a -d 1
         unzip -q $tmp_path/data.zip -d $tmp_path
         cp -rf $tmp_path/ULO-repository-main/kernel ./core/
-        cp -rf $tmp_path/ULO-repository-main/rootfs ./
+        cp -rf #$tmp_path/ULO-repository-main/rootfs ./
         cp -rf $tmp_path/ULO-repository-main/firmware $fwdriver_path/
         echo -e "Done..." | $lolcat -a -d 5
         rm -r $tmp_path
