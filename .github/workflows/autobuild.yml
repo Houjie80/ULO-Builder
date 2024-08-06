@@ -60,7 +60,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./openwrt
+          wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./tmp
           sudo ./ulo -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -s ${{ inputs.rootfs_size }}
           
       - name: Creating Package Artifact
