@@ -1,12 +1,21 @@
 #
 # Copyright (C) 2024 nosignals
 #
-name: ULO Autobuilder3
+name: ULO Autobuilderyu
 
 on:
   workflow_dispatch:
     inputs:
-      kernel:
+      rootfs_url:
+        description: "Upload ROOTFS anda"
+        required: true
+        default: ""
+      version:
+        description: 'ulo'
+        required: true
+        default: 'ulo'
+        type: string
+  kernel:
         description: 'Kernel Version (ex. 6.6.6, 6.1.31-localversion)'
         required: true
         default: '6.6.6'
@@ -34,31 +43,13 @@ on:
           - h618-orangepi-zero3
           - rk3566-orangepi-3b
           - rk3588-orangepi-5plus
-          - rk3588s-orangepi-5
-      rootfs_url:
-        description: "Upload ROOTFS via link (MEGA,mediafire,GDrive)"
-        required: true
-        default: ""
-      rootfs:
-        description: 'ROOTFS File (ex. ImmortalWrt-21-02-7-rootfs.tar.gz)'
-        required: true
-        default: 'ImmortalWrt-21-02-7-rootfs.tar.gz'
-        type: string
-      rootfs_size:
-        description: "ROOTFS Size, min 640 (756, 1024, 2048, etc)"
-        required: true
-        default: '1024'
-        type: string
-      fwinfo:
-        description: 'Firmware Information'
-        required: true
-        default: 'your custom information at release pages'
-        type: string
+          - rk3588s-orangepi-5      
+
 jobs: 
   build_ipk:
     permissions:
       contents: write
-    name: ULO Autobuilder3
+    name: ULO Autobuilder56
     runs-on: ubuntu-latest
     steps:
       
@@ -102,10 +93,9 @@ jobs:
             fi
           fi
         
-          
       - name: Building OpenWrt
         run: |
-          sudo ./ulo -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs_url }} -s ${{ inputs.rootfs_size }}
+          sudo ./${{ inputs.version }} -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -s 1024
           
       - name: Creating Package Artifact
         run: |
@@ -123,17 +113,12 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/*
-          tag: ${{ inputs.devices }}
+          tag: ${{ github.ref }}
           file_glob: true
-          overwrite: true
           body: |
-            ##  OpenWRT Release for ${{ inputs.devices }} devices
-            ULO-Builder Release from Github Workflow
-            ### OpenWrt Image Information
-            - Firmware Details : 
-              - Devices type : ${{ inputs.devices }}
-              - Kernel version : ${{ inputs.kernel }}
-              - ROOTFS File : ${{ inputs.rootfs }}
-              - ROOTFS Size : ${{ inputs.rootfs_size }}
-            - Firmware Information : 
-              - ${{ inputs.fwinfo }}
+            ## OpenWRT AT01/AX810 Release
+            Kernel :
+            - 5.4.125 | Wifi On - Unisoc
+            - 5.4.279 | Wifi On - Realtek
+            - 5.4.265 | Wifi On - Unisoc
+         
