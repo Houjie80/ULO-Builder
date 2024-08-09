@@ -126,9 +126,14 @@ jobs:
           tag: ${{ github.ref }}
           file_glob: true
           body: |
-            ## OpenWRT AT01/AX810 Release
-            Kernel :
-            - 5.4.125 | Wifi On - Unisoc
-            - 5.4.279 | Wifi On - Realtek
-            - 5.4.265 | Wifi On - Unisoc
+            ##  OpenWRT Release for ${{ inputs.devices }} devices
+            ULO-Builder Release from Github Workflow
+            ### OpenWrt Image Information
+            - Firmware Details : 
+              - Devices type : ${{ inputs.devices }}
+              - Kernel version : ${{ inputs.kernel }}
+              - ROOTFS File : ${{ inputs.rootfs }}
+              - ROOTFS Size : ${{ inputs.rootfs_size }}
+            - Firmware Information : 
+              - ${{ inputs.fwinfo }}
          
