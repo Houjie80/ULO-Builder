@@ -49,7 +49,7 @@ jobs:
   build_ipk:
     permissions:
       contents: write
-    name: ULu tes
+    name: ULO tes
     runs-on: ubuntu-latest
     steps:
       
