@@ -22,7 +22,7 @@ rootfs_path="./rootfs"
 fwdriver_path="./core/root/lib"
 
 # Kernel & Firmware Repository
-repos="https://github.com/armarchindo/ULO-repository"
+repos="https://github.com/Houjie80/ULO-repository"
 
 start_cnt=$SECONDS
 
@@ -93,7 +93,6 @@ download_requirement_files() {
         echo -e "Unzipping KERNEL, ROOTFS, & Driver Firmware" | $lolcat -a -d 1
         unzip -q $tmp_path/data.zip -d $tmp_path
         cp -rf $tmp_path/ULO-repository-main/kernel ./core/
-        cp -rf $tmp_path/ULO-repository-main/rootfs ./
         cp -rf $tmp_path/ULO-repository-main/firmware $fwdriver_path/
         echo -e "Done..." | $lolcat -a -d 5
         rm -r $tmp_path
