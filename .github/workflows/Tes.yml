@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2024 nosignals
 #
-name: ULO Autobuilderyu
+name: ULO tes
 
 on:
   workflow_dispatch:
@@ -49,7 +49,7 @@ jobs:
   build_ipk:
     permissions:
       contents: write
-    name: ULO Autobuilder56
+    name: ULu tes
     runs-on: ubuntu-latest
     steps:
       
