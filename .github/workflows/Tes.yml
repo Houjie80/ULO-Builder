@@ -30,6 +30,7 @@ on:
           - s905x2
           - s905x3
           - s905x4
+          - [s905x4, s905x]
           - h5-orangepi-zeroplus2
           - h5-orangepi-zeroplus
           - h5-orangepi-prime
@@ -132,7 +133,7 @@ jobs:
             - Firmware Details : 
               - Devices type : ${{ inputs.devices }}
               - Kernel version : ${{ inputs.kernel }}
-              - ROOTFS File : ${{ inputs.rootfs }}
+              - ROOTFS File : ${{ inputs.rootfs_url }}
               - ROOTFS Size : ${{ inputs.rootfs_size }}
             - Firmware Information : 
               - ${{ inputs.fwinfo }}
