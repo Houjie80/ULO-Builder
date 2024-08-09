@@ -23,7 +23,7 @@ fwdriver_path="./core/root/lib"
 
 # Kernel & Firmware Repository
 repos="https://github.com/Houjie80/ULO-repository"
-wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./tmp
+wget https://github.com/Houjie80/Wrt-MyWrtBuilder/releases/download/amlogic-s905x-openwrt-23.05.4-july-2024-rev/fri_openwrt-23.05.4-armsr-armv8-generic-rootfs_openclash_rev.tar.gz -P ./$tmp_path
 
 die() {
     echo -e "ERROR.. = $1"
