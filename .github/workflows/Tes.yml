@@ -15,7 +15,7 @@ on:
         required: true
         default: 'ulo'
         type: string
-  kernel:
+      kernel:
         description: 'Kernel Version (ex. 6.6.6, 6.1.31-localversion)'
         required: true
         default: '6.6.6'
