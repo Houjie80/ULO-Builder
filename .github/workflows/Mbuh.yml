@@ -22,7 +22,7 @@ jobs:
       contents: write
     strategy:
       matrix:
-        kernel: [5.4.125, 5.4.265, 5.4.279, 6.6.6]
+        kernel: [5.4.279,]
         devices: [s905x4]
     name: ULO Autobuilder56
     runs-on: ubuntu-latest
